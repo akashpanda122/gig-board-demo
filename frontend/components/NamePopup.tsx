@@ -41,7 +41,7 @@ const NamecardPopup: React.FC<NamecardPopupProps> = ({
     async function fetchData() {
       setLoading(true);
       let response = await axios(
-        "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+        "http://localhost:3001"
       ).get("/tasks");
       let tempData = get(response, "data.data", []);
       tempData = tempData.filter(
@@ -50,7 +50,7 @@ const NamecardPopup: React.FC<NamecardPopupProps> = ({
       setData(tempData);
 
       response = await axios(
-        "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+        "http://localhost:3001"
       ).get("/friends", { params: { wallet: address } });
       tempData = get(response, "data.data", []);
       setFriends(tempData);

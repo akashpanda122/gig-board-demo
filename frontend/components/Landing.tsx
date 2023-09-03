@@ -58,15 +58,15 @@ const JobPage: NextPage = () => {
   const accounts = useAccounts();
 
   // api route
-  {/* const fetchData = async () => {
+  const fetchData = async () => {
     const response = await axios(
-      "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+      "http://localhost:3001"
     ).get("/tasks");
     const tempData = get(response, "data.data", []);
     setData(tempData);
     setLoading(false);
-  }; */}
-  const fetchData = async () => {
+  };
+  {/* const fetchData = async () => {
     try{
       const response = await fetch("/api/tasks");
       const tempData = await response.json();
@@ -75,7 +75,7 @@ const JobPage: NextPage = () => {
     } catch (error) {
       console.error(error);
     }
-  }
+  } */}
 
   useEffect(() => {
     fetchData();
@@ -130,7 +130,7 @@ const JobPage: NextPage = () => {
     set(tempData, `[${index}].bookmark`, tempBookmark);
     setData(tempData);
     const response = await axios(
-      "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+      "http://localhost:3001"
     ).put("/tasks/bookmark", {
       PK,
       wallet: get(accounts, "[0]", ""),

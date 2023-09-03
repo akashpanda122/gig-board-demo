@@ -153,8 +153,8 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
       }
       if (!showError) {
         //IPFS api route
-        {/* const ipfs = await axios(
-          "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+        const ipfs = await axios(
+          "http://localhost:3001"
         ).post(
           "/ipfs",
           {
@@ -165,8 +165,8 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
             telegram,
             signal,
           }
-        ); */}
-        const ipfsResponse = await fetch("/api/ipfs", {
+        );
+        {/* const ipfsResponse = await fetch("/api/ipfs", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -179,7 +179,7 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
             telegram,
             signal,
           }),
-        });
+        }); */}
         //contract
         const referenceCode = moment().unix();
         const connectContract = new Contract(
@@ -189,7 +189,7 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
         );
         const tx = await connectContract.createTask(
           get(description, "jobDuration", ""),
-          get(ipfsResponse, "data.data", ""),
+          get(ipfs, "data.data", ""),
           referenceCode.toString(),
           { value: parseEther(salary).toString() }
         );
@@ -201,7 +201,7 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
         provider!.once(tx.hash, async(tx) => {
           //cache server
           await axios(
-            "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+            "http://localhost:3001"
           ).post("/tasks", {
             ...description,
             wallet: get(accounts, "[0]", "Address Invalid"),
@@ -211,18 +211,41 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
             telegram,
             signal,
             tx: get(tx, "transactionHash", ""),
-            ipfs: get(ipfsResponse, "data.data", ""),
+            ipfs: get(ipfs, "data.data", ""),
           });
+          {/* await fetch("/api/tasks", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...description,
+              wallet: get(accounts, "[0]", "Address Invalid"),
+              salary,
+              discord,
+              whatsapp,
+              telegram,
+              signal,
+              tx: get(tx, "transcationHash", ""),
+              ipfs: get(ipfsResponse, "data.data", ""),
+            }),
+          }); */}
           connectContract.on(
             "0xadca11b273fe1ba007c6a34b6348e66e3650c3c46cd1bbd731f1b8b4d583945c",
             async(id, task, address) => {
               if(address === get(accounts, '[0]', '')){
                 await axios(
-                  "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+                  "http://localhost:3001"
                 ).put("/tasks/taskID", {
                   PK: get(tx, "transactionHash", ""),
                   taskID: id.toString(),
                 });
+                {/* await fetch("/api/tasks/taskID", {
+                  body: JSON.stringify({
+                    PK: get(tx, "trasactionHash", ""),
+                    taskID: id.toString(),
+                  })
+                }) */}
               }
               setDescription({});
               setSalary("");

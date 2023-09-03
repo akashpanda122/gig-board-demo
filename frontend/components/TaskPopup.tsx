@@ -197,7 +197,7 @@ const TaskPopup: React.FC<TaskPopupProps> = ({
       tempApplicant.push(get(accounts, "[0]", ""));
       setApplicant(tempApplicant);
       const response = await axios(
-        "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+        "http://localhost:3001"
       ).put("/tasks/apply", {
         PK,
         wallet: get(accounts, "[0]", ""),
@@ -233,7 +233,7 @@ const TaskPopup: React.FC<TaskPopupProps> = ({
         }
         setApplicant(tempApplicant);
         const response = await axios(
-          "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+          "http://localhost:3001"
         ).put("/tasks/apply", {
           PK,
           wallet: get(accounts, "[0]", ""),
@@ -264,13 +264,13 @@ const TaskPopup: React.FC<TaskPopupProps> = ({
         setStatus(2);
         setSelectedApplicant(applicantAddress)
         await axios(
-          "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+          "http://localhost:3001"
         ).put("/tasks/status", {
           PK,
           status: "started",
         });
         await axios(
-          "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+          "http://localhost:3001"
         ).put("/tasks/select/applicant", {
           PK,
           wallet: applicantAddress,
@@ -331,7 +331,7 @@ const TaskPopup: React.FC<TaskPopupProps> = ({
         }
         provider!.once(tx.hash, async (tx) => {
           await axios(
-            "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+            "http://localhost:3001"
           ).put("/tasks/status", {
             PK,
             status: "finished",
@@ -396,7 +396,7 @@ const TaskPopup: React.FC<TaskPopupProps> = ({
       }
       provider!.once(tx.hash, async (tx) => {
         await axios(
-          "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+          "http://localhost:3001"
         ).put("/tasks/status", {
           PK,
           status: "failed",
@@ -426,7 +426,7 @@ const TaskPopup: React.FC<TaskPopupProps> = ({
       }
       provider!.once(tx.hash, async (tx) => {
         await axios(
-          "https://liwaiw1kuj.execute-api.ap-southeast-1.amazonaws.com"
+          "http://localhost:3001"
         ).put("/tasks/status", {
           PK,
           status: "failed",
