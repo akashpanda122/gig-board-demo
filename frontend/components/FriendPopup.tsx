@@ -40,7 +40,7 @@ const FriendPopup: React.FC<FriendPopupProps> = ({
     async function fetchData() {
       setLoading(true);
       const response = await axios(
-        "http://localhost:3001"
+        "http://localhost:3000/api"
       ).get("/friend", { params: { wallet: get(accounts, "[0]", "")}});
       const tempData = get(response, "data.data", []);
       setData(tempData);
@@ -76,7 +76,7 @@ const FriendPopup: React.FC<FriendPopupProps> = ({
     }
     setData(tempData);
     await axios(
-      "http://localhost:3001"
+      "http://localhost:3000/api"
     ).put("/friends", {
       PK,
       status,
@@ -90,7 +90,7 @@ const FriendPopup: React.FC<FriendPopupProps> = ({
     }else{
       setLoading(true);
       const result = await axios(
-        "http://localhost:3001"
+        "http://localhost:3000/api"
       ).post("/friends", {
         friendWallet,
         wallet: get(accounts, "[0]", ""),

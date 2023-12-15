@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 
 import { initializeConnector } from "@web3-react/core";
 import { MetaMask } from "@web3-react/metamask";
+import { ethers } from 'ethers';
 
 import Head from "next/head";
 import { get, set } from "lodash";
@@ -57,10 +58,14 @@ const JobPage: NextPage = () => {
   const isActive = useIsActive();
   const accounts = useAccounts();
 
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [defaultAccount, setDefaultAccount] = useState(null);
+  const [userBalance, setUserBalance] = useState(null);
+
   // api route
   const fetchData = async () => {
     const response = await axios(
-      "http://localhost:3001"
+      "http://localhost:3000/api"
     ).get("/tasks");
     const tempData = get(response, "data.data", []);
     setData(tempData);
@@ -87,6 +92,7 @@ const JobPage: NextPage = () => {
     } else {
       metaMask.deactivate();
     }
+
   };
   const navigate = (type: string) => {
     switch (type) {
@@ -130,7 +136,7 @@ const JobPage: NextPage = () => {
     set(tempData, `[${index}].bookmark`, tempBookmark);
     setData(tempData);
     const response = await axios(
-      "http://localhost:3001"
+      "http://localhost:3000/api"
     ).put("/tasks/bookmark", {
       PK,
       wallet: get(accounts, "[0]", ""),
@@ -187,7 +193,7 @@ const JobPage: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>BYOB - Your Web3 Job Board</title>
+        <title>CryptoHire</title>
         <meta name="description" content="Find and create task" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
