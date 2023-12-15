@@ -421,7 +421,7 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
                       </p>
                       <Select 
                         className="focus:outline-none text-sm border-black border-t-2 border-x-2 border-b-4 rounded-lg w-full px-2 mt-2 placeholder:text-gray-500 placeholder:font-medium"
-                        options={stackTypeOptions}
+                        /*options={stackTypeOptions}*/
                         styles={customStyles}
                         placeholder="Required Software / Stacks"
                         isMulti
