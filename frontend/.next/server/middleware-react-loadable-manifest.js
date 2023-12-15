@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"index.tsx -> ../components/Landing\":{\"id\":\"index.tsx -> ../components/Landing\",\"files\":[\"static/chunks/components_Landing_tsx.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST='{"index.tsx -> ../components/Landing":{"id":5009,"files":["static/chunks/75fc9c18.6f0090aa3d354e90.js","static/chunks/93.6ff9b238f8fa2ede.js","static/chunks/619.b0b6761c4a2cd379.js"]}}';

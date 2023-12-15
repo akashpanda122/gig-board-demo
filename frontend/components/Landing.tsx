@@ -26,7 +26,7 @@ import { jobTypes } from "../data/options";
 import axios from "../utils/service";
 
 const [metaMask, hooks] = initializeConnector<MetaMask>(
-  (actions) => new MetaMask(actions)
+  (actions) => new MetaMask({actions})
 );
 
 const { useIsActive, useAccounts } = hooks;
@@ -90,7 +90,7 @@ const JobPage: NextPage = () => {
     if (connect) {
       metaMask.activate();
     } else {
-      metaMask.deactivate();
+      metaMask.activate();
     }
 
   };
@@ -127,7 +127,7 @@ const JobPage: NextPage = () => {
     const index = tempData.findIndex((item: any) => item.PK === PK);
     let tempBookmark = get(tempData, `[${index}].bookmark`, []);
     if (bookmark) {
-      tempBookmark.push(get(accounts, "[0]", ""));
+      //tempBookmark.push(get(accounts, "[0]", ""));
     } else {
       tempBookmark = tempBookmark.filter(
         (item: string) => item !== get(accounts, "[0]", "")
