@@ -1,14 +1,17 @@
 # CryptoHire
 
-## ABOUT
 CryptoHire is a groundbreaking on-chain decentralized freelance platform that harnesses the power of blockchain technology to redefine the landscape of remote work and freelancing. 
 In a world where traditional freelancing platforms may encounter issues related to trust, security, and payment delays, CryptoHire emerges as a secure, transparent, and efficient solution.
+
+![CryptoHire](https://github.com/akashpanda122/gig-board-demo/blob/main/CryptoHire.png)
 
 ## Inspiration
 CryptoHire draws inspiration from the persistent challenges confronting freelancers and clients within conventional freelance platforms. The genesis of our platform lies in recognizing the enduring issues of 
 trust, payment security, and data privacy that plague the freelance industry. These challenges are further amplified by the centralized nature of existing platforms, marked by high fees and convoluted dispute 
 resolution processes. The vision for CryptoHire emerged from a desire to transcend these limitations, offering a decentralized and transparent solution that empowers freelancers and clients alike. 
 We aim to redefine the freelance landscape by addressing these pain points head-on and fostering a trustless environment built on the principles of fairness, security, and autonomy.
+
+![Task](https://github.com/akashpanda122/gig-board-demo/blob/main/task.png)
 
 ## Potential Impact
 🌐 Empowering Freelancers:
@@ -28,6 +31,5 @@ Through the use of blockchain technology, we eliminate intermediaries, reducing 
 One of CryptoHire's primary objectives is to create a more inclusive and accessible global freelance marketplace. By embracing blockchain's borderless nature, we remove geographical barriers, 
 opening up opportunities for freelancers and clients worldwide.
 
-
-
+![Profile](https://github.com/akashpanda122/gig-board-demo/blob/main/profile.png)
 
