@@ -65,7 +65,7 @@ const JobPage: NextPage = () => {
   // api route
   const fetchData = async () => {
     const response = await axios(
-      "http://localhost:3000/api"
+      "https://gig-board-demo.vercel.app/api"
     ).get("/tasks");
     const tempData = get(response, "data.data", []);
     setData(tempData);
@@ -136,7 +136,7 @@ const JobPage: NextPage = () => {
     set(tempData, `[${index}].bookmark`, tempBookmark);
     setData(tempData);
     const response = await axios(
-      "http://localhost:3000/api"
+      "https://gig-board-demo.vercel.app/api"
     ).put("/tasks/bookmark", {
       PK,
       wallet: get(accounts, "[0]", ""),

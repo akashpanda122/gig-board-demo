@@ -154,7 +154,7 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
       if (!showError) {
         //IPFS api route
         const ipfs = await axios(
-          "http://localhost:3000/api"
+          "https://gig-board-demo.vercel.app/api"
         ).post(
           "/ipfs",
           {
@@ -201,7 +201,7 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
         provider!.once(tx.hash, async(tx) => {
           //cache server
           await axios(
-            "http://localhost:3000/api"
+            "https://gig-board-demo.vercel.app/api"
           ).post("/tasks", {
             ...description,
             wallet: get(accounts, "[0]", "Address Invalid"),
@@ -235,7 +235,7 @@ const AddTaskPopup: React.FC<AddTaskPopupProps> = ({
             async(id, task, address) => {
               if(address === get(accounts, '[0]', '')){
                 await axios(
-                  "http://localhost:3000/api"
+                  "https://gig-board-demo.vercel.app/api"
                 ).put("/tasks/taskID", {
                   PK: get(tx, "transactionHash", ""),
                   taskID: id.toString(),
