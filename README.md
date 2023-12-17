@@ -33,7 +33,10 @@ opening up opportunities for freelancers and clients worldwide.
 
 ![Profile](https://github.com/akashpanda122/gig-board-demo/blob/main/profile.png)
 
+## Frontend
+---
+[https://gig-board-demo.vercel.app/](https://gig-board-demo.vercel.app/)
 ### Backend
 ---
-[https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=difti-nqaaa-aaaam-abtua-cai](https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=difti-nqaaa-aaaam-abtua-cai)
+[https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=w2eqh-vaaaa-aaaag-qcwvq-cai](https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=w2eqh-vaaaa-aaaag-qcwvq-cai)
 
