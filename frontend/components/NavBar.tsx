@@ -234,7 +234,7 @@ const NavBar = ({
                   ) : (
                     <button
                       onClick={isActivating ? undefined : () => connect()}
-                      className="px-4 text-center w-full bg-white border-x-2 border-t-2 border-b-4 border-black rounded-full py-2 text-sm font-bold focus:outline-none"
+                      className="px-4 text-black text-center w-full bg-white border-x-2 border-t-2 border-b-4 border-black rounded-full py-2 text-sm font-bold focus:outline-none"
                     >
                       Connect Wallet
                     </button>
